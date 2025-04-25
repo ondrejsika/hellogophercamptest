@@ -1,3 +1,5 @@
+version: 2
+
 project_name: hellogophercamptest
 
 before:
@@ -42,7 +44,7 @@ builds:
     binary: hellogophercamptest
 
 archives:
-  - format: tar.gz
+  - formats: [ "tar.gz" ]
     name_template: "{{ .ProjectName }}_v{{ .Version }}_{{ .Os }}_{{ .Arch }}"
 
 release:
@@ -53,15 +55,14 @@ checksum:
   algorithm: sha256
 
 brews:
-  -
-    name: hellogophercamptest
-    tap:
+  - name: hellogophercamptest
+    repository:
       owner: ondrejsika
       name: homebrew-tap
     skip_upload: auto
     homepage: https://github.com/ondrejsika/hellogophercamptest
     url_template: "https://github.com/ondrejsika/hellogophercamptest/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
-    folder: Formula
+    directory: Formula
     caveats: "How to use this binary: https://github.com/ondrejsika/hellogophercamptest"
     description: "hellogophercamptest"
     install: |

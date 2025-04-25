@@ -70,6 +70,13 @@ brews:
     test: |
       system "#{bin}/hellogophercamptest version"
 
+scoops:
+  - name: hellogophercamptest
+    repository:
+      owner: ondrejsika
+      name: scoop-bucket
+    license: MIT
+
 dockers:
     -
       goos: linux
